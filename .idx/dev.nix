@@ -14,6 +14,7 @@
   ];
   # Sets environment variables in the workspace
   env = {
+    DATABASE_URL = "mysql://root@127.0.0.1:3306/sample";
   };
   idx = {
     # Search for the extensions you want on https://open-vsx.org/ and use "publisher.id"
@@ -41,6 +42,9 @@
     workspace = {
       # Runs when a workspace is first created
       onCreate = {
+        npm-install = "npm install";
+        initialize_database = "prisma migrate dev";
+        initialize_data = "tsx prisma/seed.ts";
         # Open editors for the following files by default, if they exist:
         default.openFiles = [ ".idx/dev.nix" "README.md" ];
       };
