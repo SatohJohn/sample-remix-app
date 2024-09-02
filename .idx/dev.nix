@@ -42,9 +42,8 @@
     workspace = {
       # Runs when a workspace is first created
       onCreate = {
-        npm-install = "npm install";
-        initialize_database = "prisma migrate dev";
-        initialize_data = "tsx prisma/seed.ts";
+        initialize_database = "npx prisma migrate dev";
+        initialize_data = "npx tsx prisma/seed.ts";
         # Open editors for the following files by default, if they exist:
         default.openFiles = [ ".idx/dev.nix" "README.md" ];
       };
